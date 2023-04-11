@@ -5,33 +5,109 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encriptador</title>
-    <link rel="stylesheet" href="/img/style.css">
+    <link rel="stylesheet" href="style/style.css">
     <link rel="shortcut icon" href="img/alura.svg" type="image/x-icon">
 </head>
 <body>
-    <img src="img/alura.svg" alt="Alura" id="alura-logo">
-    <div class="user-crypt">
-        <input 
-            type="text" 
-            value="Ingrese el texto aqui" 
-            onfocus="this.value='';" >
-        
-        <p>Solo letras minusculas y sin acentos</p>
-        <input type="button" value="Encriptar">
-        <input type="button" value="Desencriptar">
-    </div>
-    <div class="crypt-section" hidden>
-        <p>Lorem ipsum</p>
-        <input type="button" value="Copiar">
-    </div>
-    <div class="no-crypt-found">
-        <img src="img/no_find.png" alt="No se pudo encontrar">
-        <h3>Ningún mensaje fue encontrado</h3>
-        <p>Ingresa el texto que desees encriptar o desencriptar.</p>
-    </div>
-    
-</body>
-<script>
+    <div class="container">
+        <div class="menu-container">
+            <img src="img/alura.svg" alt="Alura" id="alura-logo" class="logo">
+        </div>
 
-</script>
+        <div class="user-container">
+            <input 
+                type="text" 
+                value="Ingrese el texto aqui" 
+                onfocus="this.value='';" 
+                id="text-crypt">
+            
+            <p>Solo letras minusculas y sin acentos</p>
+            <input type="button" value="Encriptar" onclick="encrypt();">
+            <input type="button" value="Desencriptar" onclick="decrypt()">
+        </div>
+        <div class="found ">
+            <p>Lorem ipsum</p>
+            <input type="button" value="Copiar">
+        </div>
+        <div class="crypt-container not-found">
+            <img src="img/no_find.png" alt="No se pudo encontrar">
+            <h3>Ningún mensaje fue encontrado</h3>
+            <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+        </div>
+    </div>
+</body>
 </html>
+<script>
+    function encrypt() {
+        let texto = document.getElementById('text-crypt').value;
+        let encrypted = "";
+        console.log(texto)
+        
+        for (let i in texto) {
+            switch(texto[i]) {
+                case 'a':
+                    encrypted+="ai";
+                    break;
+                case 'e':
+                    encrypted+="enter";
+                    break;
+                case 'i':
+                    encrypted+="imes";
+                    break;
+                case 'o':
+                    encrypted+="ober";
+                    break;
+                case 'u':
+                    encrypted+="ufat";
+                default:
+                    encrypted+=texto[i]
+                    break;
+            }
+        }
+        console.log(encrypted)
+    }
+
+    function decrypt() {
+        let texto = document.getElementById('text-crypt').value;
+        let decrypt = "";
+        console.log(texto);
+        for (let i = 0; i < texto.length; i++) {
+            switch(texto[i]) {
+                case 'a':
+                    if (texto[i + 1] === 'i') {
+                        decrypt += 'a'
+                    } 
+                    i+=1;
+                    break;
+                case 'e':
+                    if (texto[i + 1] === 'n' && texto[i + 2] === 't' && texto[i + 3] === 'e' && texto[i + 4] === 'r') {
+                        decrypt += 'e'
+                    }
+                    i+=4;
+                    break;
+                case 'i':
+                    if (texto[i + 1] === 'm' && texto[i + 2] === 'e' && texto[i + 3] === 's') {
+                            decrypt += 'i'
+                        }
+                        i+=3;
+                        break;
+                case 'o':
+                    if (texto[i + 1] === 'b' && texto[i + 2] === 'e' && texto[i + 3] === 'r') {
+                            decrypt += 'o'
+                        }
+                        i+=3;
+                        break;
+                case 'u':
+                    if (texto[i + 1] === 'f' && texto[i + 2] === 'a' && texto[i + 3] === 't') {
+                            decrypt += 'u'
+                        }
+                        i+=3;
+                        break;
+                default:
+                    decrypt += texto[i]
+                    break;    
+            }
+        }
+       console.log(decrypt)
+    }
+</script>
