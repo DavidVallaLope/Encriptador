@@ -1,31 +1,5 @@
 body {
-    background-color: #E5E5E5;
-}
-.container {
-    width: 95%;
-    margin: auto;
-    min-height: 720px;
-    padding: 40px 40px;
-
-    display: inline-flex;
+    background-color: #6D5D6E;
 }
 
-.user-container {
-    width: 70%;
-}
 
-.menu-container {
-    width:10%
-}
-
-.crypt-container {
-    width: 20%;
-    background-color: white;
-    border-radius: 10px;
-    text-align: center;
-    height: auto;
-}
-
-.crypt-container img {
-    width: 80%;
-}
