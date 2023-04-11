@@ -1,8 +1,7 @@
 function checkText(funcion) {
     let texto = document.getElementById('text-crypt').value;
     if (texto.length === 0) {
-        document.getElementsByClassName('found')[0].style.visibility='hidden';
-        document.getElementsByClassName('not-found')[0].style.visibility='';
+        showPanel(false)
     } else {
         switch (funcion) {
             case 'decrypt':
@@ -13,6 +12,30 @@ function checkText(funcion) {
                 break;
         }
     }
+}
+
+function showPanel(panel) {
+    if (panel) {
+        found()
+    } else {
+        notFound()
+    }
+}
+
+function notFound() {
+    let html = '<div><img src="img/no_find.svg" alt="No se pudo encontrar"> <h3>Ningún mensaje fue encontrado</h3> <p>Ingresa el texto que desees encriptar o desencriptar.</p></div>'
+    document.getElementById('found').innerHTML = '';
+    document.getElementById('found').classList.add('non-active')
+    document.getElementById('not-found').classList.remove('non-active')
+    document.getElementById('not-found').innerHTML = html;
+}
+
+function found() {
+    let html = '<div><p id="message">Lorem ipsum</p> <input type="button" value="Copiar" onclick="copy()" class="button b2"></div>';
+    document.getElementById('found').innerHTML = html;
+    document.getElementById('not-found').classList.add('non-active')
+    document.getElementById('found').classList.remove('non-active')
+    document.getElementById('not-found').innerHTML = '';
 }
 
 function encrypt(texto) {
@@ -90,14 +113,22 @@ function decrypt(texto) {
 }
 
 function showMessage(message) {
-    document.getElementsByClassName('found')[0].style.visibility='';
-    document.getElementsByClassName('not-found')[0].style.visibility='hidden';
+    showPanel(true)
     document.getElementById('message').innerText = message;
 }
 
 function copy() {
-    var copyText = document.getElementById("message");
+    let copyText = document.getElementById("message");
 
     // Copy the text inside the text field
     navigator.clipboard.writeText(copyText.innerText);
+}
+
+function setTextArea() {
+    let text = document.getElementById("text-crypt");
+    if (text.textContent === "") {
+        document.getElementById("text-crypt").textContent = 'Ingresa el texto aqui';
+    }else {
+        document.getElementById("text-crypt").textContent = '';
+    }
 }
