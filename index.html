@@ -9,12 +9,29 @@
     <link rel="shortcut icon" href="img/alura.svg" type="image/x-icon">
 </head>
 <body>
-    <img src="img/alura.svg" alt="logo">
-    <input type="text" value="Ingrese el texto aqui">
-    <p>Solo letras minusculas y sin acentos</p>
-    <input type="button" value="Encriptar">
-    <input type="button" value="Desencriptar">
-    <p>Lorem ipsum</p>
-    <input type="button" value="Copiar">
+    <img src="img/alura.svg" alt="Alura" id="alura-logo">
+    <div class="user-crypt">
+        <input 
+            type="text" 
+            value="Ingrese el texto aqui" 
+            onfocus="this.value='';" >
+        
+        <p>Solo letras minusculas y sin acentos</p>
+        <input type="button" value="Encriptar">
+        <input type="button" value="Desencriptar">
+    </div>
+    <div class="crypt-section" hidden>
+        <p>Lorem ipsum</p>
+        <input type="button" value="Copiar">
+    </div>
+    <div class="no-crypt-found">
+        <img src="img/no_find.png" alt="No se pudo encontrar">
+        <h3>Ningún mensaje fue encontrado</h3>
+        <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+    </div>
+    
 </body>
+<script>
+
+</script>
 </html>
