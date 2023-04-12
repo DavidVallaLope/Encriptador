@@ -31,7 +31,7 @@ function notFound() {
 }
 
 function found() {
-    let html = '<div><p id="message">Lorem ipsum</p> <input type="button" value="Copiar" onclick="copy()" class="button b2"></div>';
+    let html = '<div><textarea id="message" disabled >Lorem ipsum</textarea> <input type="button" value="Copiar" onclick="copy()" class="button b2"></div>';
     document.getElementById('found').innerHTML = html;
     document.getElementById('not-found').classList.add('non-active')
     document.getElementById('found').classList.remove('non-active')
@@ -121,7 +121,7 @@ function copy() {
     let copyText = document.getElementById("message");
 
     // Copy the text inside the text field
-    navigator.clipboard.writeText(copyText.innerText);
+    navigator.clipboard.writeText(copyText.textContent);
 }
 
 function setTextArea() {

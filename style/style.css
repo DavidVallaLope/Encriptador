@@ -31,6 +31,22 @@ body {
     color: #0A3871;
 }
 
+#message {
+    border:none;
+    background-color: white;
+    font-size:1.5em;
+    width: 80%;
+    height: 19em;
+    text-align: left;
+    overflow: auto;
+    resize: none;
+}
+
+#message:focus{
+    border: none;
+    outline: none;
+}
+
 #text-crypt:focus{
     border: none;
     outline: none;
@@ -38,7 +54,7 @@ body {
 
 .button {
     height: 4em;
-    width: 35em;
+    width: 45%;
     border-radius: 1em;
     border: solid .2em;
     margin-left: 2em;
@@ -83,6 +99,7 @@ body {
 .user-container {
     width: 70%;
     padding-left: 2em;
+    text-align: center;
 }
 
 .non-active {
@@ -96,5 +113,6 @@ body {
 .warning {
     font-size: .8em;
     color: grey;
-    margin-left: 2em;
+    text-align: left;
+    margin-left: 6em;
 }
